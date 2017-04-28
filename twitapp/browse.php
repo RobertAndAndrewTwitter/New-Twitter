@@ -1,4 +1,7 @@
-<html>
+<?php
+	?>
+
+  <html>
 
     <head>
       <!--Import Google Icon Font-->
@@ -10,9 +13,16 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <style>
-    	.page-footer{
-   			 position: relative;
-    	}
+        body{
+          background-color: pink ;
+          border-style: dashed;
+          border-color: white;
+    }
+    </style>
+    <style>
+      .page-footer{
+         position: relative;
+      }
     </style>
 
 
@@ -24,7 +34,7 @@
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
       
- 	 <div class="fixed-action-btn horizontal click-to-toggle">
+   <div class="fixed-action-btn horizontal click-to-toggle">
     <a class="btn-floating btn-large red">
       <i class="material-icons">menu</i>
     </a>
@@ -52,7 +62,7 @@
         </div>
       </div>
 
-  	<div class="col s12 m8 offset-m2 l6 offset-l3">
+    <div class="col s12 m8 offset-m2 l6 offset-l3">
         <div class="card-panel grey lighten-5 z-depth-1">
           <div class="row valign-wrapper">
             <div class="col s2">
@@ -87,8 +97,6 @@
       </div>
 
 
-	<?php
-	?>
     <form action="logout.php" method="post"><button>Log out</button></form>
     <footer class="page-footer">
           <div class="container">

@@ -1,44 +1,4 @@
-<html>
-    <head>
-      <!--Import Google Icon Font-->
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-      <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
-      <div class="row">
-      	<div class="col s12 m6">
-          <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title">Welcome</span>
-              <p>Hello and Welcome to the New Twitter. It is better although there are less users and less features. There is also no way to talk to other users or use it on other computers but trust us it is better.</p>
-            </div>
-            <div class="card-action">
-              <a href="profile.php">Edit my Profile</a>
-              <a href="browse.php">Browse People</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-  <div class="fixed-action-btn horizontal click-to-toggle">
-    <a class="btn-floating btn-large red">
-      <i class="material-icons">menu</i>
-    </a>
-    <ul>
-      <li><a class="btn-floating red" href="profile.php"><i class="material-icons">perm_identity</i></a></li>
-      <li><a class="btn-floating yellow darken-1" href="browse.php"><i class="material-icons">language</i></a></li>
-      <li><a class="btn-floating green" href="info.php"><i class="material-icons">info_outline</i></a></li>
-      <li><a class="btn-floating blue" href="settings.php"><i class="material-icons">settings</i></a></li>
-    </ul>
-  </div>
-	<?php
+<?php
 	
 	    // pass in some info;
 		require("common.php"); 
@@ -130,7 +90,54 @@
 		mysqli_close($connection);
 
 	?>
-    
+    <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+        <style>
+             body{
+              background-color: pink ;
+              border-style: dashed;
+              border-color: white;
+    }
+</style>    
+    <body>
+
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Welcome</span>
+              <p>Hello and Welcome to the New Twitter. It is better although there are less users and less features. There is also no way to talk to other users or use it on other computers but trust us it is better.</p>
+            </div>
+            <div class="card-action">
+              <a href="profile.php">Edit my Profile</a>
+              <a href="browse.php">Browse People</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <div class="fixed-action-btn horizontal click-to-toggle">
+    <a class="btn-floating btn-large red">
+      <i class="material-icons">menu</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating red" href="profile.php"><i class="material-icons">perm_identity</i></a></li>
+      <li><a class="btn-floating yellow darken-1" href="browse.php"><i class="material-icons">language</i></a></li>
+      <li><a class="btn-floating green" href="info.php"><i class="material-icons">info_outline</i></a></li>
+      <li><a class="btn-floating blue" href="settings.php"><i class="material-icons">settings</i></a></li>
+    </ul>
+  </div>
     <!-- This is the HTML form that appears in the browser -->
    	<form action="<?=$_SERVER['PHP_SELF']?>" method="post">
     	Country: <input type="text" name="country">
