@@ -17,9 +17,8 @@
 		
 		// To access $_SESSION['user'] values put in an array, show user his username
 		$arr = array_values($_SESSION['user']);
-		echo "Welcome " . $arr[2];
-    $usernm = $arr[1];
-
+		echo "Welcome " . $arr[1];
+    $usernm = "@".$arr[1];
 		// open connection
 		$connection = mysqli_connect($host, $username, $password) or die ("Unable to connect!");
 
@@ -39,10 +38,10 @@
     		echo "<table cellpadding=10 border=1>";
     		while($row = mysqli_fetch_row($result)) {
         		echo "<tr>";
-				echo "<td>".$row[0]."</td>";
+				//echo "<td>".$row[0]."</td>";
         		echo "<td>" . $row[1]."</td>";
         		echo "<td>".$row[2]."</td>";
-				echo "<td><a href=".$_SERVER['PHP_SELF']."?id=".$row[0].">Delete</a></td>";
+				echo "<td><a href=".$_SERVER['PHP_SELF']."?id=".$row[0].">Remove From Twitter</a></td>";
         		echo "</tr>";
     		}
 		    echo "</table>";
@@ -91,7 +90,7 @@
 		mysqli_close($connection);
 
 	?>
-    <html>
+  <html>
     <head>
       <!--Import Google Icon Font-->
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -101,12 +100,12 @@
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
-        <style>
-            body{
-              background-color: pink ;
-              border-style: dashed;
-              border-color: white;
-    }
+    <style>
+      body{  
+        background-color: pink ;
+        border-style: dashed;
+        border-color: white;
+      }
 </style>
     <body>
       <!--Import jQuery before materialize.js-->
@@ -138,13 +137,21 @@
       <li><a class="btn-floating blue" href="everyone.php"><i class="material-icons">settings</i></a></li>
     </ul>
   </div>
+
     <!-- This is the HTML form that appears in the browser -->
    	<form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-    	name: <input type="text" name="name">
     	tweet: <input type="text" name="tweet">
-    	<input type="submit" name="submit">
+    	<button class="btn waves-effect waves-light" type="submit" name="action">Post
+    <i class="material-icons right">send</i>
+  </button>
     </form>
-    <form action="logout.php" method="post"><button>Log out</button></form>
+    search: <input type="text" name="seach">
+    <button class="btn waves-effect waves-light" type="submit" name="action">Go
+    <i class="material-icons right">send</i>
+  </button><br><br>
+   <form action="logout.php" method="post"><button class="btn waves-effect waves-light" type="submit" name="action">Log Out
+    <i class="material-icons right">send</i>
+  </button>
     <footer class="page-footer">
           <div class="container">
             <div class="row">
@@ -156,7 +163,7 @@
                 <h5 class="white-text">Links to support us</h5>
                 <ul>
                   <li><a class="grey-text text-lighten-3" href="https://www.Patreon.com">Patreon</a></li>
-                  <li><a class="grey-text text-lighten-3" href="https://www.GoFundMe.com">Go Fund Me</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://funds.gofundme.com/dashboard/newtwitter">Go Fund Me</a></li>
                   <li><a class="grey-text text-lighten-3" href="https://www.PayPal.com">Pay Pal</a></li>
                   <li><a class="grey-text text-lighten-3" href="https://www.gmail.com">E-Mail</a></li>
                 </ul>

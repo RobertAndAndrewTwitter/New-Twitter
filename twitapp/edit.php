@@ -17,8 +17,8 @@
 		
 		// To access $_SESSION['user'] values put in an array, show user his username
 		$arr = array_values($_SESSION['user']);
-		echo "Welcome " . $arr[2];
-
+		echo "Welcome " . $arr[1];
+    $usernm = "@".$arr[1];
 		// open connection
 		$connection = mysqli_connect($host, $username, $password) or die ("Unable to connect!");
 
@@ -26,7 +26,7 @@
 		mysqli_select_db($connection, $dbname) or die ("Unable to select database!");
 
 		// create query
-		$query = "SELECT * FROM symbols";
+		$query = "SELECT * FROM symbols WHERE name = '$usernm'";
        
 		// execute query
 		$result = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysql_error());
@@ -38,10 +38,10 @@
     		echo "<table cellpadding=10 border=1>";
     		while($row = mysqli_fetch_row($result)) {
         		echo "<tr>";
-				echo "<td>".$row[0]."</td>";
+				//echo "<td>".$row[0]."</td>";
         		echo "<td>" . $row[1]."</td>";
         		echo "<td>".$row[2]."</td>";
-				echo "<td><a href=".$_SERVER['PHP_SELF']."?id=".$row[0].">Delete</a></td>";
+				echo "<td><a href=".$_SERVER['PHP_SELF']."?id=".$row[0].">Remove From Twitter</a></td>";
         		echo "</tr>";
     		}
 		    echo "</table>";
@@ -62,7 +62,7 @@
 		// check to see if user has entered anything
 		if ($tweet != "") {
 	 		// build SQL query
-			$query = "INSERT INTO symbols (name, tweet) VALUES ('$username', '$tweet')";
+			$query = "INSERT INTO symbols (name, tweet) VALUES ('$usernm', '$tweet')";
 			// run the query
      		$result = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysql_error());
 			// refresh the page to show new update
@@ -133,18 +133,25 @@
     <ul>
       <li><a class="btn-floating red" href="profile.php"><i class="material-icons">perm_identity</i></a></li>
       <li><a class="btn-floating yellow darken-1" href="browse.php"><i class="material-icons">language</i></a></li>
-      <li><a class="btn-floating green" href="info.php"><i class="material-icons">info_outline</i></a></li>
-      <li><a class="btn-floating blue" href="settings.php"><i class="material-icons">settings</i></a></li>
+      <li><a class="btn-floating green" href="edit.php"><i class="material-icons">info_outline</i></a></li>
+      <li><a class="btn-floating blue" href="everyone.php"><i class="material-icons">settings</i></a></li>
     </ul>
   </div>
 
     <!-- This is the HTML form that appears in the browser -->
    	<form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-    	name: <input type="text" name="name">
     	tweet: <input type="text" name="tweet">
-    	<input type="submit" name="submit">
+    	<button class="btn waves-effect waves-light" type="submit" name="action">Post
+    <i class="material-icons right">send</i>
+  </button>
     </form>
-    <form action="logout.php" method="post"><button>Log out</button></form>
+    search: <input type="text" name="seach">
+    <button class="btn waves-effect waves-light" type="submit" name="action">Go
+    <i class="material-icons right">send</i>
+  </button><br><br>
+   <form action="logout.php" method="post"><button class="btn waves-effect waves-light" type="submit" name="action">Log Out
+    <i class="material-icons right">send</i>
+  </button>
     <footer class="page-footer">
           <div class="container">
             <div class="row">

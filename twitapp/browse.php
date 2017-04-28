@@ -97,7 +97,9 @@
       </div>
 
 
-    <form action="logout.php" method="post"><button>Log out</button></form>
+     <form action="logout.php" method="post"><button class="btn waves-effect waves-light" type="submit" name="action">Log Out
+    <i class="material-icons right">send</i>
+  </button><br><br>
     <footer class="page-footer">
           <div class="container">
             <div class="row">
