@@ -42,6 +42,9 @@
       <li><a class="btn-floating yellow darken-1" href="browse.php"><i class="material-icons">language</i></a></li>
       <li><a class="btn-floating green" href="edit.php"><i class="material-icons">info_outline</i></a></li>
       <li><a class="btn-floating blue" href="everyone.php"><i class="material-icons">settings</i></a></li>
+      <li><a class="btn-floating orange" href="info.php"><i class="material-icons">dashboard</i></a></li>
+      <li><a class="btn-floating light-green accent-3" href="browse.php"><i class="material-icons">shop</i></a></li>
+
     </ul>
   </div>
   <div class="col s12 m8 offset-m2 l6 offset-l3">
