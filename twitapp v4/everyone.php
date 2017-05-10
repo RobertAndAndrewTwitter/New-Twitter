@@ -17,8 +17,11 @@
 		
 		// To access $_SESSION['user'] values put in an array, show user his username
 		$arr = array_values($_SESSION['user']);
-		echo "Welcome @" . $arr[1];
+		echo "Welcome @" . $arr[1]."<br> ";
     $usernm = "@".$arr[1];
+    $userid = $arr[0];
+    $quote = "'";
+
 		// open connection
 		$connection = mysqli_connect($host, $username, $password) or die ("Unable to connect!");
 
@@ -26,10 +29,63 @@
 		mysqli_select_db($connection, $dbname) or die ("Unable to select database!");
 
 		// create query
-		$query = "SELECT * FROM symbols";
-       
+		$query = "SELECT username FROM users WHERE id='1'";
+    $following = "SELECT following FROM users WHERE id=$userid";
+    $fquery = mysqli_query($connection,$following) or die ("Error in query: $following. ".mysql_error());
+    $farray = mysqli_fetch_array($fquery);
+    $fstring = implode("", $farray);
+    $flength = (strlen($fstring)/2);
+    $fstring = substr_replace($fstring,"",$flength);
+    $newstring = "";
+    $token = strtok($fstring, ",");
+    while ($token !== false){
+      $token = strtok(",");
+      $newstring = $newstring . " OR id=". $token;
+    }
+
+    $finalq = $query . $newstring;
+    $finalq = substr_replace($finalq,"",-7);
+    // execute query
+    $fresult = mysqli_query($connection,$finalq) or die ("Error in query: $query. ".mysql_error());
+    
+    $namestring = "";
+    if (mysqli_num_rows($fresult) > 0) {
+
+        // print them one after another
+        while($row = mysqli_fetch_row($fresult)) {
+          $namestring = $namestring . $row[0] . ",";
+        }
+
+      }
+
+
+   /* $namearray = mysqli_fetch_array($fresult);
+    $namestring = implode("", $namearray);
+    echo $namestring;
+    $namequery = "SELECT * FROM symbols WHERE name='$usernm'";
+    
+    $namelength = (strlen($namestring)/2);
+    $namestring = substr_replace($namestring,"",$namelength);
+
+    $newstring = "";
+    */
+
+    $namequery = "SELECT * FROM symbols WHERE name='$usernm'";
+    $namestring = rtrim($namestring, ",");
+    $newstring = "";
+    $token = strtok($namestring, ",");
+    while ($token !== false){
+      $token = strtok(",");
+      $newstring = $newstring . " OR name='@". $token . $quote;
+
+    }
+
+    $finalnameq = $namequery . $newstring;
+    $finalnameq = substr_replace($finalnameq,"",-12);
+
+
 		// execute query
-		$result = mysqli_query($connection,$query) or die ("Error in query: $query. ".mysql_error());
+		$result = mysqli_query($connection,$finalnameq) or die ("Error in query: $query. ".mysql_error());
 
 		// see if any rows were returned
 		if (mysqli_num_rows($result) > 0) {
@@ -41,7 +97,7 @@
 				//echo "<td>".$row[0]."</td>";
         		echo "<td>" . $row[1]."</td>";
         		echo "<td>".$row[2]."</td>";
-				echo "<td><a href=".$_SERVER['PHP_SELF']."?id=".$row[0].">Remove From Twitter</a></td>";
+				      echo "<td><a href=".$_SERVER['PHP_SELF']."?id=".$row[0].">Remove From Twitter</a></td>"; 
         		echo "</tr>";
     		}
 		    echo "</table>";
@@ -49,7 +105,7 @@
 		} else {
 			
     		// print status message
-    		echo "No rows found!";
+    		echo "<br> No rows found!";
 		}
 
 		// free result set memory

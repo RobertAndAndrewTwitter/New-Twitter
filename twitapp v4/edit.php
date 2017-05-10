@@ -18,7 +18,7 @@
 		// To access $_SESSION['user'] values put in an array, show user his username
 		$arr = array_values($_SESSION['user']);
 		echo "Welcome @" . $arr[1];
-    $usernm = "@".$arr[1];
+   		$usernm = "@".$arr[1];
 		// open connection
 		$connection = mysqli_connect($host, $username, $password) or die ("Unable to connect!");
 
