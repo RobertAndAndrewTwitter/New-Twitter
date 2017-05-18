@@ -47,7 +47,7 @@
         font-family:"Times New Roman", Times, serif;
         font-size: 30px;
          position: relative;
-         left:90px;
+         left:10;
          font-weight: bold;
       </style>
       <style>
@@ -62,7 +62,7 @@
 
     <body>
       <h2>About Us</h2>
-      <h1>Robert Peri</h1>
+      <h4>Andrew Downing</h4>
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
@@ -82,40 +82,44 @@
       <li><a class="btn-floating blue darken-3" href="logout.php"><i class="material-icons">settings_power</i></a></li>
     </ul>
   </div>
-  <div>
-           <div class="col s12 m7">
-    <div class="card horizontal">
-      <div class="card-image">
-        <img src="https://s24.postimg.org/ou52pwg79/9675910be434bae31494269507.png">
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <p>Hi my name is Robert Peri, and I am the co-founder and co-onwer of New Twitter. I was born in </p>
-        </div>
-        <div class="card-action">
-        </div>
-      </div>
-    </div>
-  </div>
-</br>
-</br>
-    <h4>Andrew Downing</h4>
 
-   <div>
+    <div>
       <div class="col s12 m7">
     <div class="card horizontal">
       <div class="card-image">
-      <img src="https://s2.postimg.org/3ydf2txa1/62259132ff97205d1494429689.png">
+      <img src="https://s29.postimg.org/e40ian713/20459132fc7990791494429639_resized.png">
       </div>
       <div class="card-stacked">
         <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.An essay is, generally, a piece of writing that gives the author's own argument — but the definition is vague, overlapping with those of an article, a pamphlet, and a short story. Essays have traditionally been sub-classified as formal and informal</p>
+          <p>Hi my name is Andrew Downing, and I am the co-founder and co-onwer of New Twitter. I was born in a suburban town in Zimbabwe. At the age of 2 I moved to the United States where I learnt how to code. A year later, I was recruited by Microsoft, where I became their head coder. Soon after this, Mark Zuckerberg and I discovered Facebook, and after making millions with him, I decided to take several years off, where I moved to the most remote island on Earth, Tristan da Cunha, where I practiced coding every second of the day. This contiuned for eleven years until I arrived at UCC. Here I decied to put all my years of experience into one thing, New Twitter. Robert (other founder) and I spent hours upon hours perfecting New Twitter, and as you can tell, it paid off, creating a safe social media platform for all our happy users.</p>
         </div>
         <div class="card-action">
         </div>
       </div>
     </div>
   </div>
+  <div>
+</br>
+</br>
+    <h4>Robert Peri</h4>
+           <div class="col s12 m7">
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="https://s4.postimg.org/4g4khe3zh/9675910be434bae31494269507_resized.png">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>Hi my name is Robert Peri, and I am the co-founder of New Twitter. Since my birth, I knew it was my life calling to create New Twitter. When I turned a month old, I wrote my first pieces of code, which was an algorithm to decifer the human DNA. Two years after this, I was coding in my house on Easter Island, where I was born, when I was asked by to become the CEO of Unix, but sadly I had to decline due to the fact that I was too commited to creating the best social media website of all time. I then moved to the US for fourteen years, where I dedicated all of my time into reseach on how to make a social media website great. It was here where I found the recipe, but I needed a partner to complete my vision. I arrived at UCC where I met Andrew, (other founder) where we worked tirelessly on making the best website. We managed to complete this, creating what is known by everyone as the best social media platform to ever be created, New Twiter. </p>
+        </div>
+        <div class="card-action">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+ 
               </span>
                <body>
                </body>
